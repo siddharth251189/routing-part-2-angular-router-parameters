@@ -6,7 +6,7 @@ In the example we are passing two parameters to users route first is id and seco
 http://localhost:4200/users/1/max
 
 ### app.module.ts
-```
+```Javascript
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
   {path:'users',component:UsersComponent},
@@ -27,7 +27,7 @@ this.route.snapshot.params['id']
 ```
 
 ### user.component.ts
-```
+```Javascript
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router'
 @Component({
@@ -54,7 +54,7 @@ export class UserComponent implements OnInit {
 
 ```
 ### user.component.html
-```
+```html
 <p>User with ID {{user.id}} loaded.</p>
 <p>User name is {{user.name}}</p>
 
@@ -62,14 +62,14 @@ export class UserComponent implements OnInit {
 
 ## Fatching Router Parameters Reactively(With Observable);
 In some conditions screenshot method will not work. For example if we have a router link in user component like this:
-```
+```html
 <a [routerLink]="['/users',10,'Anna']">Load Anna</a>
 
 ```
 If we will click on button it will update parameters in address bar(URL) but not on the view. so for prevent this issue we will have to use <b>params</b> observable.
 
 ### Important syntax:
-```
+```Javascript
 this.route.params
     .subscribe((params:Params)=>{
      
@@ -77,7 +77,7 @@ this.route.params
 ```
 ### user.component.ts
 
-```
+```Javascript
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router'
 @Component({
